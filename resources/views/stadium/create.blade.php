@@ -12,6 +12,11 @@
             {{ Form::text('name', null, array('class' => 'form-control')) }}
         </div>
 
+        <div class="form-group col-md-12">
+            {{ Form::label('team_id', 'Equipe propietária:', array('class' => 'control-label')) }}
+            {{ Form::select('team_id', $teams, null, array('class' => 'form-control')) }}
+        </div>
+
         <div class="form-group col-md-6">
             {{ Form::label('capacity', 'Capacidade:', array('class' => 'control-label')) }}
             {{ Form::number('capacity', null, array('class' => 'form-control')) }}

@@ -21,6 +21,11 @@
             {{ Form::label('position', 'Posição:', array('class' => 'control-label')) }}
             {{ Form::select('position', $positions, null, array('class' => 'form-control')) }}
         </div>
+        
+        <div class="form-group col-md-12">
+            {{ Form::label('team_id', 'Equipe:', array('class' => 'control-label')) }}
+            {{ Form::select('team_id', $teams, null, array('class' => 'form-control')) }}
+        </div>
 
         <div class="form-group col-md-12">
             {{ Form::label('nationality', 'Nacionalidade:', array('class' => 'control-label')) }}

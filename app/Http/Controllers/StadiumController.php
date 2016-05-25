@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Stadium;
+use App\Team;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -27,7 +28,8 @@ class StadiumController extends Controller
      */
     public function create()
     {
-        return view('stadium.create');
+        $teams = Team::lists('name', 'id');
+        return view('stadium.create', compact('teams'));
     }
 
     /**

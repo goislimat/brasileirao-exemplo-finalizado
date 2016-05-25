@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Player;
+use App\Team;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -27,8 +28,9 @@ class PlayerController extends Controller
      */
     public function create()
     {
+        $teams = Team::lists('name', 'id');
         $positions = $this->getPositions();
-        return view('player.create', compact('positions'));
+        return view('player.create', compact('teams', 'positions'));
     }
 
     /**

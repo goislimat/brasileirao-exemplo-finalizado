@@ -17,3 +17,6 @@ Route::resource('team', 'TeamController');
 Route::resource('stadium', 'StadiumController');
 Route::resource('player', 'PlayerController');
 Route::resource('championship', 'ChampionshipController');
+
+Route::post('championship/{championship}/team',
+    ['uses' => 'ChampionshipController@addTeam', 'as' => 'championship.add.team']);

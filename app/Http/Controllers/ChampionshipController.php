@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Championship;
+use App\Team;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -59,7 +60,10 @@ class ChampionshipController extends Controller
     {
         $championship = Championship::find($id);
         $championship->type = $this->getTypesAsText($championship->type);
-        return view('championship.show', compact('championship'));
+
+        $teams = Team::lists('name', 'id');
+
+        return view('championship.show', compact('championship', 'teams'));
     }
 
     /**
@@ -94,6 +98,14 @@ class ChampionshipController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function addTeam(Request $request, $championship)
+    {
+        $championship = Championship::find($championship);
+        $championship->teams()->attach($request->team_id);
+
+        return redirect()->route('championship.show', array($championship));
     }
 
     private function getTypesOfChampionship()
